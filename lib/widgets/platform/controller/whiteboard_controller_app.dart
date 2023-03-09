@@ -4,7 +4,7 @@ import 'package:whiteboard/model/whiteboard_scene_size.dart';
 
 import 'whiteboard_controller_platform.dart';
 
-class WhiteBoardController extends WhiteBoardControllerPlatform {
+class WhiteboardController extends WhiteboardControllerPlatform {
   final _channel = const MethodChannel('whiteboard');
 
   // method call

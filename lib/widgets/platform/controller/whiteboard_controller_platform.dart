@@ -4,7 +4,7 @@ import 'package:whiteboard/model/enums.dart';
 import 'package:whiteboard/model/white_board_joining_model.dart';
 import 'package:whiteboard/model/whiteboard_scene_size.dart';
 
-abstract class WhiteBoardControllerPlatform extends ChangeNotifier {
+abstract class WhiteboardControllerPlatform extends ChangeNotifier {
   late String previewViewId;
 
   ToolTeaching defaultToolTeaching = ToolTeaching.pencil;

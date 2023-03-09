@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:whiteboard/model/enums.dart';
 import 'package:whiteboard/widgets/whiteboard.dart';
+import 'package:whiteboard/widgets/whiteboard_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +32,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final controller = WhiteboardController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,14 +42,37 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Stack(
         children: [
-          Align(
-            alignment: Alignment.center,
-            // Get uuid, token and AK with document https://docs.agora.io/en/interactive-whiteboard/reference/whiteboard-api/overview?platform=web
-            child: Whiteboard(
+          Positioned.fill(
+              // Get uuid, token and AppIdentifier with document https://docs.agora.io/en/interactive-whiteboard/reference/whiteboard-api/overview?platform=web
+              child:
+              Whiteboard(
               roomUuid: '<uuid>',
               roomToken: '<token>',
-              appIdentifier: '<AK>',
+              appIdentifier: '<AppIdentifier>',
               userId: 'userId',
+            ),
+          ),
+          Positioned(
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    controller.switchToolTeaching(ToolTeaching.pencil);
+                  },
+                  child: const Text('Pen'),
+                ),
+                const SizedBox(width: 10.0),
+                TextButton(
+                  onPressed: () {
+                    controller.switchToolTeaching(ToolTeaching.eraser);
+                  },
+                  child: const Text('Eraser'),
+                ),
+              ],
             ),
           ),
         ],

@@ -133,7 +133,7 @@ external Future<void> _jsSetWhiteboardViewBackgroundColor(int r, int g, int b);
 @JS('getCurrentSceneSizeWhiteboardAction')
 external Future<String> _jsGetCurrentSceneSize();
 
-class WhiteBoardController extends WhiteBoardControllerPlatform {
+class WhiteboardController extends WhiteboardControllerPlatform {
   @override
   void joinRoom(
     String roomUuid,
